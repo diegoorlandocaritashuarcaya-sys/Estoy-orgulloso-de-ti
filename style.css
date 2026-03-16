@@ -1,0 +1,210 @@
+body{
+background:#0f172a;
+font-family:Arial;
+text-align:center;
+margin-top:80px;
+overflow-y:auto;
+color:white;
+}
+
+/* pantalla inicial */
+
+.pantallaInicio{
+position:fixed;
+width:100%;
+height:100%;
+background:#0f172a;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.pantallaInicio button{
+padding:15px 30px;
+font-size:20px;
+background:#9333ea;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* estrellas */
+
+.estrellas{
+position:fixed;
+width:100%;
+height:100%;
+background:url("https://www.transparenttextures.com/patterns/stardust.png");
+animation:moverEstrellas 60s linear infinite;
+z-index:-1;
+}
+
+@keyframes moverEstrellas{
+from{background-position:0 0;}
+to{background-position:1000px 1000px;}
+}
+
+.container{
+background:rgba(255,255,255,0.1);
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:420px;
+margin:auto;
+backdrop-filter:blur(10px);
+display:none;
+}
+
+h1{
+color:#a78bfa;
+}
+
+.mensaje{
+font-size:18px;
+line-height:1.6;
+}
+
+button{
+padding:15px;
+font-size:18px;
+background:#9333ea;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+margin-top:20px;
+}
+
+button:hover{
+background:#7e22ce;
+}
+
+.foto{
+width:100%;
+max-width:260px;
+border-radius:15px;
+margin:15px;
+}
+
+/* barra progreso */
+
+.barra{
+width:100%;
+height:35px;
+background:#1e293b;
+border-radius:20px;
+margin-top:25px;
+overflow:hidden;
+box-shadow:0 0 10px rgba(0,0,0,0.5);
+}
+
+.progreso{
+width:0%;
+height:100%;
+background:linear-gradient(90deg,#22c55e,#4ade80,#22c55e);
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+color:white;
+position:relative;
+overflow:hidden;
+}
+
+/* brillo animado */
+
+.progreso::after{
+content:"";
+position:absolute;
+width:200%;
+height:100%;
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.4),
+transparent
+);
+animation:brillo 2s infinite;
+}
+
+@keyframes brillo{
+0%{transform:translateX(-100%);}
+100%{transform:translateX(100%);}
+}
+
+.textoBarra{
+font-size:14px;
+z-index:2;
+}
+
+/* carta */
+
+.carta{
+display:none;
+background:white;
+color:black;
+padding:20px;
+border-radius:10px;
+margin-top:20px;
+animation:aparecer 2s;
+}
+
+@keyframes aparecer{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* birretes */
+
+.birrete{
+position:fixed;
+top:-50px;
+animation:caerBirrete 5s linear forwards;
+pointer-events:none;
+}
+
+@keyframes caerBirrete{
+0%{transform:translateY(-50px) rotate(0deg);}
+100%{transform:translateY(900px) rotate(360deg);}
+}
+
+/* fuegos artificiales */
+
+.fuego{
+position:fixed;
+font-size:40px;
+animation:explosion 2s ease-out forwards;
+pointer-events:none;
+}
+
+@keyframes explosion{
+0%{transform:scale(0);opacity:1;}
+100%{transform:scale(3);opacity:0;}
+}
+
+.particula{
+position:fixed;
+width:6px;
+height:6px;
+border-radius:50%;
+animation:explosion 1s ease-out forwards;
+pointer-events:none;
+}
+
+@keyframes explosion{
+
+0%{
+transform:translate(0,0);
+opacity:1;
+}
+
+100%{
+transform:translate(var(--x),var(--y));
+opacity:0;
+}
+
+}
